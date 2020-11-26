@@ -1,0 +1,22 @@
+from PIL import Image
+from PIL import ImageOps
+import PIL
+import os
+
+
+#폴더 명 다 만들기
+# file_list = os.listdir("D:/hwdb/testimg")
+# for filename in file_list:
+#     dir_name = "D:/hwdb/newtest/" + filename
+#     if not os.path.exists(dir_name):
+#         os.mkdir(dir_name)
+
+import shutil
+#인버트 하기
+file_list = os.listdir("D:/breastcancer/BreaKHis_v1.tar/BreaKHis_v1/histology_slides/breast/malignant/SOB/ductal_carcinoma/")
+for filename in file_list:
+    filell=os.listdir("D:/breastcancer/BreaKHis_v1.tar/BreaKHis_v1/histology_slides/breast/malignant/SOB/ductal_carcinoma/"+filename+"/40X")
+    for filel in filell:
+        ori="D:/breastcancer/BreaKHis_v1.tar/BreaKHis_v1/histology_slides/breast/malignant/SOB/ductal_carcinoma/" + filename + "/40X/"+filel
+        new="D:/breastcancer/BreaKHis_v1.tar/BreaKHis_v1/histology_slides/breast/malignant/SOB/ductal_carcinoma/train/40X/"+filel
+        shutil.move(ori,new)
